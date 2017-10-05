@@ -13,10 +13,15 @@ app.get('/', function(request, response) {
   response.send(JSON.stringify(payloads));
 });
 
+app.get('/clear', function(request, response){
+  payloads = [];
+  response.send(JSON.stringify(payloads));;
+});
+
 app.post('/payload', function(request, response){
   payloads.push(request.body);
   console.log(request.body);
-  response.send('thanks');
+  response.send('added payload');
 });
 
 app.listen(app.get('port'), function() {
